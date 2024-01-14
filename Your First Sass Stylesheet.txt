@@ -88,3 +88,145 @@ h1 {
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* Sass: Overview
+----------------
+Let’s get started! Sass has many perks that enable us to write succinct, readable code. In this lesson we will explore three concepts:
+
+	. Variables
+	. Mixins
+	. Nests
+
+In the process, you’ll use Sass to style your very own website for a lemonade stand.
+
+* Instructions
+--------------
+Take a look at the Sass code in main.scss and compare it to the CSS equivalent in main.css. What differences do you notice?
+
+Hint: Both versions produce the same effects!
+
+We will be editing these files to style the website appropriately.
+
+index.html
+----------
+<link rel="stylesheet" type="text/css" href="main.css">
+
+<h1>LEMONADE</h1>
+
+<div class="banner">
+  <div class="slogan">
+    <span>
+      homemade with fresh ingredients
+    </span>
+  </div>  
+</div>
+  
+<div class="container">
+  <div class="icon">
+    fresh lemons
+    <img src="lemon.png">
+  </div>
+  <div class="icon">
+    real sugar
+    <img src="lemon.png">
+  </div>
+  <div class="icon">
+    dad's recipe
+    <img src="lemon.png">
+  </div>
+</div>  
+
+
+main.css
+--------
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+h1 {
+  font-family: Roboto, sans-serif;
+  text-align: center;
+}
+
+.banner {
+  font-family: 'Pacifico', cursive;
+  height: 400px;
+  background-image: url("lemonade.jpg");
+}
+
+.container {
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+}
+
+main.scss
+---------
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+//Add variables here:
+
+h1 {
+  font-family: Roboto, sans-serif;
+  text-align: center;
+}
+
+.banner {
+  font-family: 'Pacifico', cursive;
+  height: 400px;
+  background-image: url("lemonade.jpg");
+}
+
+.container {
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
