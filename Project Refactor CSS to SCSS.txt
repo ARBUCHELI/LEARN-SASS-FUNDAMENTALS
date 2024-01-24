@@ -1,0 +1,179 @@
+# PROJECT
+---------
+
+* Refactor CSS to SCSS
+----------------------
+The band at Common Cents Party wants to update their codebase by upgrading from old standard CSS— which is hard to maintain and ever-growing in complexity— to the more efficent and 
+organized SCSS. Your first order of business is to help them refactor their code by nesting selectors and identifying variables. Let’s get started!
+
+If you get stuck during this project or would like to see an experienced developer work through it, click “Get Unstuck“ to see a project walkthrough video.
+
+* Tasks
+-------
+7/7 complete
+Mark the tasks as complete by checking them off
+1.
+Analyze the index.html and shows.html documents. The DOM relationships will help you decide how to nest your selectors. Take a look inside of style.scss, paste in the entire contents of 
+style.css so we can begin refactoring.
+
+
+Hint
+Paste in the entire contents of style.css so we can begin refactoring.
+
+2.
+Let’s start by defining variables to improve the readability of the codebase. At the top of the style.scss file, create a variable for every Hex value. Reference these variables where the
+Hex values used to appear.
+
+
+Hint
+Make two variables for both #ffffff and #FFCFCF
+
+3.
+When first nesting selectors, it’s always best to start with the big picture. Look inside of shows.html and index.html. What is the outermost element in both files and what are its direct 
+children? Start by nesting these selectors along with their properties in style.scss
+
+
+Hint
+Nest .nav and .main inside of .container.
+
+4.
+Next, trickle down the DOM tree and focus solely on the .nav selector. What elements are direct children of this element? In style.scss, nest the selectors and their properties 
+appropriately.
+
+
+Hint
+Nest the h4 and ul properties directly inside of .nav.
+
+5.
+Let’s move down to the .main element. What elements are first descendants of .main? In style.scss, nest these selectors accordingly.
+
+
+Hint
+Inside of the .main selector, nest in h1,video, p, a and a:hover along with their properties.
+
+6.
+Do any of first descendents of .nav or .main have descendents with properties? In style.scss, nest li and its properties inside of ul.
+
+
+Hint
+Nest li inside of ul which is inside of .main.
+
+7.
+Let’s pause and recollect. Do you notice any value that repeats itself over and over again inside of .main?
+
+If you look closely you will see that padding-left: 30px is an attribute of every direct child of .main.
+
+There’s a shorthand CSS selector for applying a property to all direct children. Add the > * selector and define the property these elements have in common. Now that you’ve done this you 
+can remove padding-left: 30px; everywhere else.
+
+
+Hint
+Include padding-left: 30px; inside of .main in style.scss.
+
+index.html
+----------
+<html>
+  <head>
+    <title>Common Cents Party</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <div class="nav">
+        <h4>Common Cents Party</h4>
+        <ul>
+          <li>Home</li>
+          <li>Shows</li>
+          <li>Albums</li>
+          <li>Gallery</li>
+          <li>Bio</li>
+          <li>Blog</li>
+        </ul>
+      </div>
+      <div class="main">
+        <h1>Common Cents Party</h1>
+        <img src="https://content.codecademy.com/projects/make-a-website/lesson-1/band.jpg"/>
+        <p>
+          "Common Cents Party, a hard-hitting acoustic punk/electronic four-piece from Atlanta, Georgia, combines an unleashed live performance with edgy lyrics, unforgettable hooks and well-studied synth-rock sounds. A must-see, must-hear new band." -Screech Magazine
+        </p>
+        <a href="shows.html">Click here for a list of upcoming shows</a>
+
+      </div>
+    </div>
+  </body>
+</html>
+
+style.scss
+----------
+$color1: #ffffff;
+$color2: #FFCFCF;
+
+html, body {
+  margin: 0;
+  font-family: Arial;
+  color: $color1;
+}
+
+p, a {
+  font-size: 0.75rem;
+}
+
+img {
+  padding-left: 30px;
+  height: 350px;
+  width: 550px;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  min-height: 100%;
+  display: flex;
+  
+  .nav {
+    width: 15%;
+    min-width: 140px;
+    color: $color2;
+    padding-top: 55px;
+    padding-right: 30px;
+    text-align: center;
+
+    h4 {
+      -webkit-margin-before: 0;
+      margin-left: 50px;
+    }
+  }
+
+  .main {
+    width: 85%;
+    min-height: 750px;
+    min-width: 600px;
+    background-color: $color2;
+    > * {
+      padding-left: 30px;
+    }
+    ul {
+       li {
+        font-size: 0.85rem;
+      }
+    }
+    h1 {
+      font-size: 62px;
+      -webkit-margin-before: 0;
+      padding-top: 40px;
+    }
+    p {
+      width: 55%;
+      min-width: 550px;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
